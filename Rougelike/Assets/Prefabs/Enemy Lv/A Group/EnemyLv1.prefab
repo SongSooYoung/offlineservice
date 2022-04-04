@@ -505,7 +505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   explosionFactory: {fileID: 1628744458893394, guid: 53f5e5098d07f2e48ae80bcb351c5caf, type: 3}
-  coinFactory: {fileID: 6410274616938082796, guid: 3c8dc0f1b7a47754f864d58f5bdd2daf, type: 3}
+  coinFactory: {fileID: 8347570542256534571, guid: 3c8dc0f1b7a47754f864d58f5bdd2daf, type: 3}
+  hpPotionFactory: {fileID: 5650867159644982949, guid: 25fc4161e4c5aef46bbe6f7221c01cf2, type: 3}
 --- !u!195 &1404470363090223080
 NavMeshAgent:
   m_ObjectHideFlags: 0

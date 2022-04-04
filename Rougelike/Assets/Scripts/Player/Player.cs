@@ -11,11 +11,9 @@ public class Player : MonoBehaviour
     Vector3 moveVec;
     float hAxis;
     float vAxis;
-    GameObject Exp;
 
     CharacterController cc;
-
-    // Start is called before the first frame update
+    //--------------------------------------- 움직임
     void Awake()
     {
         cc = GetComponent<CharacterController>();
@@ -25,7 +23,11 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   //게임상태가 '게임 중' 상태일 때만 조작할 수 있게 한다.
+        if(GameManager.instance.gState !=GameManager.GameState.Run)
+        {
+            return;
+        }
         hAxis = Input.GetAxisRaw("Horizontal");
         vAxis = Input.GetAxisRaw("Vertical");
 
@@ -34,24 +36,26 @@ public class Player : MonoBehaviour
 
         transform.LookAt(transform.position + moveVec);
     }
-
-
-    void OnTriggerEnter(Collider other)
+    //---------------------------------------EXP와 부딪힘
+    void OnTriggerEnter(Collider other)     
     {
-        ExpManager.instance.EXP++;
         if (other.tag == "Exp")
         {
+            LevelManager.instance.EXP = LevelManager.instance.EXP + 1;
             Destroy(other.gameObject);
         }
-    }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        print(hit.gameObject.name + hit.gameObject.transform.position);
-        if (hit.gameObject.name.Contains("EXP"))
-        {
-            Debug.LogError("!!!");
-        }
-        
     }
+    //---------------------------------------
+
+
+    // private void OnControllerColliderHit(ControllerColliderHit hit)
+    //  {
+    //print(hit.gameObject.name + hit.gameObject.transform.position);
+    //if (hit.gameObject.name.Contains("EXP"))
+    // {
+    //    Debug.LogError("!!!");
+    //  }
+
+    // }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9131788238720745861}
   - component: {fileID: 7894921334498105642}
   - component: {fileID: -5529031360949823339}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Whip
   m_TagString: Weapon
   m_Icon: {fileID: 0}

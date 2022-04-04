@@ -255,7 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   explosionFactory: {fileID: 1628744458893394, guid: 53f5e5098d07f2e48ae80bcb351c5caf, type: 3}
-  coinFactory: {fileID: 6410274616938082796, guid: 3c8dc0f1b7a47754f864d58f5bdd2daf, type: 3}
+  coinFactory: {fileID: 8347570542256534571, guid: 3c8dc0f1b7a47754f864d58f5bdd2daf, type: 3}
+  hpPotionFactory: {fileID: 5650867159644982949, guid: 25fc4161e4c5aef46bbe6f7221c01cf2, type: 3}
 --- !u!195 &2749960604588241931
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -290,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3a52dd5079edf4ea9bec2cd449f55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 2
+  maxHP: 3
   sliderHP: {fileID: 2638927317918301393}
 --- !u!1 &4132998092396681279
 GameObject:

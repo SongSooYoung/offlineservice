@@ -25,13 +25,13 @@ public class KnifePosition : MonoBehaviour
         currentTime += Time.deltaTime;
         if (currentTime > createTime)
         {
-            GameObject whip = Instantiate(weaponFactory);
-            whip.transform.position = weaponPosition.transform.position;
+            GameObject knife = Instantiate(weaponFactory);
+            knife.transform.position = weaponPosition.transform.position;
 
             currentTime = 0;
             transform.LookAt(transform.position);
 
-            whip.transform.forward = transform.forward;
+            knife.transform.forward = transform.forward;
         }
 
     }

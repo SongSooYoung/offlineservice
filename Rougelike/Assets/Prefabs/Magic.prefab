@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1532223170897509674}
   - component: {fileID: 1683794801561882355}
   - component: {fileID: -4758260905951728923}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Magic
   m_TagString: Weapon
   m_Icon: {fileID: 0}

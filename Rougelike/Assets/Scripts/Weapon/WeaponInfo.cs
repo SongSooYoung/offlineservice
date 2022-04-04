@@ -5,15 +5,13 @@ using UnityEngine;
 public class WeaponInfo : MonoBehaviour
 {
     public WeaponType type;
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+            
     }
 }

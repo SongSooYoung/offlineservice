@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HitManager : MonoBehaviour
 {
+
     public static HitManager instance;
     private void Awake()
     {
@@ -31,5 +32,14 @@ public class HitManager : MonoBehaviour
         imageHit.SetActive(false);
 
     }
+    void Update()
+    {
+        //게임상태가 '게임 중' 상태일 때만 조작할 수 있게 한다.
+        if (GameManager.instance.gState != GameManager.GameState.Run)
+        {
+            return;
+        }
+    }
 
-}
+
+    }

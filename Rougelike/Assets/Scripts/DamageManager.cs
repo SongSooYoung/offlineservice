@@ -10,7 +10,8 @@ public enum WeaponType
     Knife,
     Lightning,
     Magic,
-    Whip,
+    Whip, 
+    Bible,
 }
 
 [System.Serializable]

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    //---------------------------------------
     //생성시간
     float createTime = 1;
     //현재시간
@@ -20,17 +21,21 @@ public class EnemyManager : MonoBehaviour
     {
         createTime = Random.Range(creatTimemin, creatTimemax);
     }
-
-    // Update is called once per frame
+    //---------------------------------------
     void Update()
     {
+        //게임상태가 '게임 중' 상태일 때만 조작할 수 있게 한다.
+        if (GameManager.instance.gState != GameManager.GameState.Run)
+        {
+            return;
+        }
         //현재시간이 증가하다가 
         currentTime += Time.deltaTime;
 
         if (createTime < currentTime)
         {
             //만약 게임오버가 되지 않았다면
-            if (false == GameManager.instance.GameOverUI.activeSelf)
+            if (false == GameManager.instance.gameOverUI.activeSelf)
             {
                 GameObject enemy = Instantiate(enemyFactory);
 

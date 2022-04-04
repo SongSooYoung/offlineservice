@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         agent = GetComponent<NavMeshAgent>();
         ehp = gameObject.GetComponent<ALLHP>();
     }
@@ -22,6 +23,12 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //게임상태가 '게임 중' 상태일 때만 조작할 수 있게 한다.
+        if (GameManager.instance.gState != GameManager.GameState.Run)
+        {
+            return;
+        }
+      
         GameObject target = GameObject.Find("Player");
         if (target)
         {
@@ -32,8 +39,9 @@ public class Enemy : MonoBehaviour
     // 누군가와 부딪히면 폭발공장에서 
     public GameObject explosionFactory;
     public GameObject coinFactory;
+    public GameObject hpPotionFactory;
 
-    
+
     public void TryDamage(float damageVelue)
     {
         print("HP : " + ehp.HP + ", damageVelue : " + damageVelue);
@@ -71,10 +79,11 @@ public class Enemy : MonoBehaviour
             if (php.HP <= 0)
             {
                 Destroy(collision.gameObject);
-                GameManager.instance.GameOverUI.SetActive(true);
+                GameManager.instance.gameOverUI.SetActive(true);
+                GameManager.instance.gState = GameManager.GameState.GameOver;
             }
 
-            TryDamage(1);
+            TryDamage(1); // 에너미가 플레이어와 부딪혔을 시 
         }
         else
         {
@@ -86,6 +95,12 @@ public class Enemy : MonoBehaviour
         {
             GameObject coin = Instantiate(coinFactory);
             coin.transform.position = transform.position;
+            int rValue = Random.Range(0, 100);
+            if (rValue < 5)
+            {
+                GameObject hpPotion = Instantiate(hpPotionFactory);
+                hpPotion.transform.position = transform.position;
+            }
             ScoreManager.instance.SCORE++;
         }
     }
